@@ -1,9 +1,10 @@
 const express = require("express");
-const app = express();
 require("dotenv/config");
+const constants = require("./constants");
+const app = express();
 const path = require("path");
+const exphbs = require("express-handlebars");
 const logger = require("./middlewares/logger");
-const API_VERSION = process.env.API_VERSION || "v0.1";
 const PORT = process.env.PORT || 8000;
 
 app.use(logger);
@@ -13,8 +14,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // serve static content
 app.use(express.static(path.join(__dirname, "public")));
+// engine
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // members api routes
-app.use(`/api/${API_VERSION}/members`, require("./routes/api/members"));
+app.use(
+  `/api/${constants.API_VERSION}/members`,
+  require("./routes/api/members")
+);
+// members pages
+app.use(`/members`, require("./routes/web/members"));
 
 app.listen(PORT);

@@ -38,6 +38,11 @@ router.post("/", (req, res) => {
 
   members.push(newMember);
 
+  if (req.body.back) {
+    backURL = req.header("Referer") || "/";
+    // do your thang
+    return res.redirect(backURL);
+  }
   res.json(members);
 });
 

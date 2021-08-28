@@ -18,13 +18,13 @@ const jsHeader = (res) => {
 };
 
 const headers = (res, ext) => {
-  if (ext === "json") {
+  if (ext === ".json") {
     jsonHeader(res);
-  } else if (ext === "html") {
+  } else if (ext === ".html") {
     htmlHeader(res);
-  } else if (ext === "css") {
+  } else if (ext === ".css") {
     cssHeader(res);
-  } else if (ext === "js") {
+  } else if (ext === ".js") {
     jsHeader(res);
   }
 };

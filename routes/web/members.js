@@ -17,6 +17,7 @@ router.get("/add", (req, res) => {
   res.render("members/add", {
     title: "Add New Member",
     API_VERSION: constants.API_VERSION,
+    members,
   });
 });
 

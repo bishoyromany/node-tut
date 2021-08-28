@@ -1,0 +1,14 @@
+{
+  "name": "node-tut",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bishoyromany/node-tut.git",
+  "author": "Bishoy Romany <7bishoyromany7@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

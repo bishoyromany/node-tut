@@ -1,5 +1,5 @@
 const EventEmitter = require("events");
-const Logger = require("./../logger");
+const Logger = require("./logger");
 const logger = new Logger();
 
 logger.on("message", (data) => {

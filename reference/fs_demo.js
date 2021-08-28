@@ -37,13 +37,25 @@ fs.exists(FOLDER_PATH, (exists) => {
             (err, data) => {
               if (err) throw err;
               console.log(data);
-
               fs.rename(
                 path.join(FOLDER_PATH, "file.txt"),
                 path.join(FOLDER_PATH, "hello-world.txt"),
                 (err) => {
                   if (err) throw err;
                   console.log("File Renamed");
+                  const files = fs.readdirSync(FOLDER_PATH);
+                  console.table(files);
+                  fs.unlink(
+                    path.join(FOLDER_PATH, "hello-world.txt"),
+                    (err) => {
+                      if (err) throw err;
+                      console.log("Removed Hello World File");
+                      fs.rmdir(path.join(FOLDER_PATH), (err) => {
+                        if (err) throw err;
+                        console.log("Folder Removed");
+                      });
+                    }
+                  );
                 }
               );
             }

@@ -5,12 +5,16 @@ const schema = require("./schema/schema");
 const { graphqlHTTP } = require("express-graphql");
 const mongoose = require("mongoose");
 const mongodbCode = process.env.MONGO_DB_CONNECTION_STRING;
+const cors = require("cors");
 const app = express();
 
+// db
 mongoose.connect(mongodbCode);
-
 mongoose.connection.once("open", () => console.log("Connected To MongoDB"));
 
+app.use(cors());
+
+// api
 app.use(
   "/graphql",
   graphqlHTTP({

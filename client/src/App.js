@@ -1,11 +1,13 @@
 import BookList from "./components/BookList";
+import AddBook from "./components/AddBook";
 
 function App() {
   return (
     <div className="App" id="main">
       <h1>Books Page</h1>
 
-      <BookList id={"612d701128169b96ca715878"} />
+      <BookList />
+      <AddBook />
     </div>
   );
 }

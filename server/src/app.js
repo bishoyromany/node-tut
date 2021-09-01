@@ -2,6 +2,7 @@ const express = require("express");
 const PORT = process.env.PORT || 5000;
 require("dotenv").config();
 const { ApolloServer, gql } = require("apollo-server-express");
+const db = require("./db");
 const app = express();
 
 const typeDefs = gql`
@@ -17,6 +18,8 @@ const resolvers = {
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
+
+db.connect(process.env.MONGODB_URL);
 
 async function startApolloServer() {
   await server.start();

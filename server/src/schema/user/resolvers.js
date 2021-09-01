@@ -4,6 +4,10 @@ module.exports = {
     return {
       _id: params._id,
     };
-    console.log(parent, params);
+  },
+  users: async (parent, params, context) => {
+    return await context.models.User.find()
+      .skip(params.offset || 0)
+      .limit(params.limit || process.env.DEFAULT_PAGINATION_LIMIT);
   },
 };

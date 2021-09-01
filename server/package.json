@@ -1,0 +1,17 @@
+{
+  "name": "gql-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
+  },
+  "dependencies": {
+    "apollo-server-express": "^3.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.2",
+    "nodemon": "^2.0.12"
+  }
+}

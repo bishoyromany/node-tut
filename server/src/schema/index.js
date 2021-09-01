@@ -9,7 +9,10 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    ...userResolvers,
+    ...userResolvers.Query,
+  },
+  Mutation: {
+    ...userResolvers.Mutation,
   },
 };
 

@@ -1,0 +1,16 @@
+# import User from "user/schema.gql"
+type Query {
+  hello: String
+  user: User!
+  users(limit: Int, offset: Int): [User!]
+}
+
+type Mutation {
+  signUp(
+    username: String!
+    name: String!
+    password: String!
+    email: String!
+  ): User!
+  signIn(username: String, password: String!, email: String): User!
+}

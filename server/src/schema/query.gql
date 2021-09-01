@@ -1,0 +1,6 @@
+# import User from "user/query.gql"
+type Query {
+  hello: String
+  user(_id: ID!): User!
+  users(limit: Int, offset: Int): [User!]
+}

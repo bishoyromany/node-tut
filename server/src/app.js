@@ -4,18 +4,13 @@ require("dotenv").config();
 const { ApolloServer, gql } = require("apollo-server-express");
 const db = require("./db");
 const app = express();
+const { typeDefs, resolvers } = require("./schema/graphql");
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => "Hello world!",
-  },
-};
+// const typeDefs = gql`
+//   type Query {
+//     hello: String
+//   }
+// `;
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
